@@ -1,38 +1,101 @@
-.App {
-  text-align: center;
+body{
+  background-color: #22756a;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-content {
+  background-color: #0f342f;
+  min-height: 100vh;
+  min-width: 100vh;
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;
+  justify-content: center;*/
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: chartreuse;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header h1{
+  color: #36a899;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#list-view {
+  overflow: auto;
 }
+
+#new-task-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+#new-task-container input {
+  background-color: #cba733;
+  border: 0;
+  border-radius: 10px;
+  font-size: medium;
+  padding: 10px;
+  margin: 10px;
+  color: #ffeaa3;
+}
+
+#new-task-container input::placeholder {
+  color: #eacb66;
+}
+
+#new-task-container input:focus-within, #new-task-container button:focus-within {
+  outline: none;
+}
+
+#new-task-container button {
+  background-color: #ab4a16;
+  color: #e79163;
+  border: 0;
+  border-radius: 10px;
+  font-size: medium;
+  padding: 10px;
+  margin: 10px;
+
+}
+
+#new-task-container button:active {
+  background-color: #e1814e;
+  color: #ab4a16;
+}
+
+.list-tasks-container{
+  width: 300px;
+  margin: auto;
+
+}
+
+.list-tasks{
+  background-color: #22756a;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: large;
+  padding: 10px;
+  margin: 10px;
+  list-style-type: none;
+  flex-direction: row;
+}
+
+.list-checkbox{
+  height: 20px;
+  width: 20px;
+  accent-color: #7ca45a;
+  border-radius: 5px;
+}
+
+.list-checkbox:checked ~ .checkmark {
+  background-color: #95f321;
+  border-color: #ffffff;
+}
+
+
+
