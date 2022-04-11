@@ -1,46 +1,30 @@
 body{
-  background-color: #22756a;
+  background-color: #0f342f;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .main-content {
-  background-color: #0f342f;
   min-height: 100vh;
   min-width: 100vh;
-  display: flex;
-  flex-direction: column;
-  /*align-items: center;
-  justify-content: center;*/
+  max-width: 250px;
+  margin: auto;
 }
 
-.App-header {
-  background-color: chartreuse;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-header h1{
-  color: #36a899;
-}
-
-#list-view {
-  overflow: auto;
-}
-
+/**New task view**/
 #new-task-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: 40px;
 }
 
 #new-task-container input {
   background-color: #cba733;
   border: 0;
   border-radius: 10px;
-  font-size: medium;
+  font-size: large;
   padding: 10px;
   margin: 10px;
+  flex-grow: 1;
   color: #ffeaa3;
 }
 
@@ -57,10 +41,9 @@ body{
   color: #e79163;
   border: 0;
   border-radius: 10px;
-  font-size: medium;
+  font-size: large;
   padding: 10px;
-  margin: 10px;
-
+  margin: 10px 10px 10px 0;
 }
 
 #new-task-container button:active {
@@ -68,33 +51,59 @@ body{
   color: #ab4a16;
 }
 
+/**List view**/
 .list-tasks-container{
-  width: 300px;
-  margin: auto;
-
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.list-tasks{
+.list-task{
   background-color: #22756a;
+  display: flex;
+  flex-direction: row;
   color: #ffffff;
   border-radius: 10px;
   font-size: large;
   padding: 10px;
   margin: 10px;
-  list-style-type: none;
-  flex-direction: row;
+
 }
 
-.list-checkbox{
+.task-checkbox{
   height: 20px;
   width: 20px;
-  accent-color: #7ca45a;
+  accent-color: #cba733;
   border-radius: 5px;
 }
 
-.list-checkbox:checked ~ .checkmark {
-  background-color: #95f321;
+.task-checkbox:checked ~ .checkmark {
   border-color: #ffffff;
+}
+
+.task-text{
+  flex-grow: 1;
+  margin-left: 10px;
+  overflow-x: scroll;
+}
+
+.task-text::-webkit-scrollbar {
+  display: none;
+}
+
+.task-text {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.task-delete{
+  margin: auto;
+}
+
+.crossed-line {
+  text-decoration: line-through;
 }
 
 

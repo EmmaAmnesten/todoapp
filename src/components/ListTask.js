@@ -1,35 +1,49 @@
 import React from "react";
-import deleteSymbol from '../image/deleteSymbol.png';
+import { TiDelete } from 'react-icons/ti';
 
-function ListTask( tasks ) {
+function ListTask( props ) {
 
-    //const tasks = value ;
-    for (let i = 0; i < tasks.length; i++) {
-        console.log(tasks.at(i))
+    /*tasks.value.map((value) =>
+        console.log("task: " + value.text + " - " + value.ifDone)
+    );*/
+
+    const toggleTask = (key, e) => {
+        props.onClickToggle({
+            key: key,
+            checkedState: e.checked,
+            formTask: e.parentNode
+        });
     }
-    const testNum = tasks.value.length;
-    console.log("test" + tasks.value.length);
 
-    if(tasks.value.length>0) {
-        const listTasks = tasks.value.map((value) =>
-            <li className="list-tasks" key={value.id}>
-                <form>
-                    <input type="checkbox" className="list-checkbox"/>
-                    {value.text}
+    const deleteTask = (key) => {
+        props.onClickDelete({
+            key
+        });
+    }
+
+    if(props.arrayTasks.length>0) {
+        const listTasks = props.arrayTasks.map((task) =>
+            <li key={task.key} >
+                <form className="list-task">
+                    <input
+                        type="checkbox"
+                        className="task-checkbox"
+                        onChange={(e) => toggleTask(
+                            task.key,
+                            e.target)} />
+                    <div className="task-text">{task.text}</div>
+                    <TiDelete className="task-delete" onClick={() => deleteTask(task.key)}/>
                 </form>
-
             </li>
         );
         return(
-            <div>
-                <ul className="list-tasks-container">{listTasks}</ul>
-            </div>
+            <ul className="list-tasks-container">{listTasks}</ul>
         );
     }else{
         return(
 
-            <div>
-                <h1>Lista tom {testNum}</h1>
+            <div className="list-task">
+                <div className="task-text">Woho! Inga uppgifter att göra just nu.</div>
             </div>
         )
     }

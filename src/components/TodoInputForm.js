@@ -6,13 +6,16 @@ function TodoInputForm (props){
     const handelChange = (e) => {
         inputState(e.target.value);
     };
+
+
     
     const handelSubmit = (e) => {
         e.preventDefault();
 
         props.onSubmit({
-            id:Date.now(),
-            text:input
+            key:Date.now(),
+            text:input,
+            ifDone:false
         });
 
         inputState("")
@@ -22,7 +25,7 @@ function TodoInputForm (props){
         <form id="new-task-container" onSubmit={handelSubmit}>
             <input
                 type="Text"
-                placeholder="Ny todo"
+                placeholder="Skriv in en uppgift"
                 value={input}
                 name="name"
                 className="todoInput"
