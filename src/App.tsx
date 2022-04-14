@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import TodoInputForm from './components/TodoInputForm';
 import ListTask from "./components/ListTask";
@@ -6,10 +6,21 @@ import ListTask from "./components/ListTask";
 
 function App(){
 
-    const [arrayListTask, setArrayListTask] = useState<any[]>([]);
+    const [arrayListTask, setArrayListTask] = useState<any[]>(() => {
+        const saved = localStorage.getItem("arrayListTask");
+        const initialValue = JSON.parse(saved);
+        return initialValue || "";
+    });
+
+    useEffect(() => {
+        localStorage.setItem("arrayListTask", JSON.stringify(arrayListTask));
+    }, [arrayListTask]);
+
+
 
     const addTodo = (props: any) => {
         setArrayListTask([...arrayListTask, props]);
+        localStorage.setItem("arrayListTask", JSON.stringify(arrayListTask));
     }
 
     const toggleTask = (props: any) => {

@@ -3,10 +3,6 @@ import { TiDelete } from 'react-icons/ti';
 
 function ListTask( props ) {
 
-    /*tasks.value.map((value) =>
-        console.log("task: " + value.text + " - " + value.ifDone)
-    );*/
-
     const toggleTask = (key, e) => {
         props.onClickToggle({
             key: key,

@@ -6,8 +6,6 @@ function TodoInputForm (props){
     const handelChange = (e) => {
         inputState(e.target.value);
     };
-
-
     
     const handelSubmit = (e) => {
         e.preventDefault();
